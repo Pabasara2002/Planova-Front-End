@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Planova Event Planning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            color: #8B5A8C;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #8B5A8C;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            color: #8B5A8C;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .services-intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .service-category {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .category-title {
+            color: #8B5A8C;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .service-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .service-image {
+            height: 120px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .service-list {
+            list-style: none;
+        }
+        
+        .service-list li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .add-ons-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .add-ons-title {
+            color: #8B5A8C;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .add-ons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .add-on-item {
+            padding: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        
+        .add-on-item:hover {
+            border-color: #8B5A8C;
+        }
+        
+        .add-on-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .add-on-title {
+            color: #8B5A8C;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .add-on-description {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .cta-button {
+            background-color: white;
+            color: #8B5A8C;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">PLANOVA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Services</h1>
+        <p class="services-intro">
+            At Planova, we specialize in creating your most unforgettable moments with our comprehensive event management services. 
+            From intimate gatherings to grand celebrations, we bringing your vision to life with precision and creativity.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-category">
+                <h2 class="category-title">Venue</h2>
+                <div class="service-images">
+                    <div class="service-image">Indoor Venues</div>
+                    <div class="service-image">Outdoor Venues</div>
+                    <div class="service-image">Beach Venues</div>
+                    <div class="service-image">Garden Venues</div>
+                </div>
+                <ul class="service-list">
+                    <li>Premium venue selection</li>
+                    <li>Site inspection and coordination</li>
+                    <li>Venue decoration and setup</li>
+                    <li>Capacity planning</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h2 class="category-title">Decoration</h2>
+                <div class="service-images">
+                    <div class="service-image">Floral Arrangements</div>
+                    <div class="service-image">Lighting Design</div>
+                    <div class="service-image">Stage Setup</div>
+                    <div class="service-image">Table Settings</div>
+                </div>
+                <ul class="service-list">
+                    <li>Custom theme development</li>
+                    <li>Floral design and arrangements</li>
+                    <li>Lighting and ambiance</li>
+                    <li>Furniture and props</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h2 class="category-title">Entertainment Services</h2>
+                <div class="service-images">
+                    <div class="service-image">Live Music</div>
+                    <div class="service-image">DJ Services</div>
+                    <div class="service-image">Dance Performances</div>
+                    <div class="service-image">Photo Booth</div>
+                </div>
+                <ul class="service-list">
+                    <li>Live bands and musicians</li>
+                    <li>Professional DJ services</li>
+                    <li>Cultural performances</li>
+                    <li>Interactive entertainment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="add-ons-section">
+            <h2 class="add-ons-title">Add-ons</h2>
+            <div class="add-ons-grid">
+                <div class="add-on-item">
+                    <div class="add-on-image">Professional Photography</div>
+                    <div class="add-on-title">Photography</div>
+                    <div class="add-on-description">Capture every precious moment with our professional photographers</div>
+                </div>
+
+                <div class="add-on-item">
+                    <div class="add-on-image">Videography Services</div>
+                    <div class="add-on-title">Videography</div>
+                    <div class="add-on-description">Professional video coverage of your special day</div>
+                </div>
+
+                <div class="add-on-item">
+                    <div class="add-on-image">Catering Services</div>
+                    <div class="add-on-title">Catering</div>
+                    <div class="add-on-description">Exquisite cuisine tailored to your preferences</div>
+                </div>
+
+                <div class="add-on-item">
+                    <div class="add-on-image">Transportation</div>
+                    <div class="add-on-title">Transport</div>
+                    <div class="add-on-description">Luxury transportation for guests and wedding party</div>
+                </div>
+
+                <div class="add-on-item">
+                    <div class="add-on-image">Fireworks Display</div>
+                    <div class="add-on-title">Fireworks</div>
+                    <div class="add-on-description">Spectacular fireworks to light up your celebration</div>
+                </div>
+
+                <div class="add-on-item">
+                    <div class="add-on-image">Event Coordination</div>
+                    <div class="add-on-title">Coordination</div>
+                    <div class="add-on-description">Full-service event coordination and management</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Plan Your Perfect Event?</h2>
+            <p>Let us bring your vision to life with our comprehensive event planning services.</p>
+            <button class="cta-button" onclick="window.location.href='contact.html'">Get Started Today</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Planova Event Planning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            color: #8B5A8C;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #8B5A8C;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            color: #8B5A8C;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .gallery-intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .gallery-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            color: #8B5A8C;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .highlight-info {
+            padding: 20px;
+        }
+        
+        .highlight-title {
+            color: #8B5A8C;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .album-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .album-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .album-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .album-info {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .album-title {
+            color: #8B5A8C;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .album-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 15px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 30px;
+            color: #8B5A8C;
+            cursor: pointer;
+        }
+        
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .testimonial-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            color: #8B5A8C;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">PLANOVA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Gallery</h1>
+        <p class="gallery-intro">
+            Explore Our Event Highlights... <br>
+            Take a glimpse at some of our most memorable events and see how we bring dreams to life. 
+            Each celebration tells a unique story of love, joy, and unforgettable moments.
+        </p>
+
+        <div class="gallery-section">
+            <h2 class="section-title">Event Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-image">Elegant Wedding Setup</div>
+                    <div class="highlight-info">
+                        <h3 class="highlight-title">Romantic Garden Wedding</h3>
+                        <p class="highlight-description">A breathtaking outdoor ceremony with floral arrangements and fairy lights creating the perfect romantic ambiance.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-image">Corporate Event</div>
+                    <div class="highlight-info">
+                        <h3 class="highlight-title">Corporate Gala Night</h3>
+                        <p class="highlight-description">Professional event management for a prestigious corporate gathering with elegant decor and entertainment.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-image">Birthday Celebration</div>
+                    <div class="highlight-info">
+                        <h3 class="highlight-title">Milestone Birthday Party</h3>
+                        <p class="highlight-description">A vibrant celebration with custom themes, entertainment, and memorable moments for a special birthday.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <h2 class="section-title">Photo Albums</h2>
+            <div class="albums-grid">
+                <div class="album-card" onclick="openModal('album1')">
+                    <div class="album-image">Wedding Collection</div>
+                    <div class="album-info">
+                        <div class="album-title">Album 1</div>
+                        <div class="album-count">Wedding Ceremonies</div>
+                    </div>
+                </div>
+
+                <div class="album-card" onclick="openModal('album2')">
+                    <div class="album-image">Decorations Gallery</div>
+                    <div class="album-info">
+                        <div class="album-title">Album 2</div>
+                        <div class="album-count">Decoration Setups</div>
+                    </div>
+                </div>
+
+                <div class="album-card" onclick="openModal('album3')">
+                    <div class="album-image">Reception Venues</div>
+                    <div class="album-info">
+                        <div class="album-title">Album 3</div>
+                        <div class="album-count">Reception Halls</div>
+                    </div>
+                </div>
+
+                <div class="album-card" onclick="openModal('album4')">
+                    <div class="album-image">Special Occasions</div>
+                    <div class="album-info">
+                        <div class="album-title">Album 4</div>
+                        <div class="album-count">Special Events</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-section">
+            <h3 style="color: #8B5A8C; margin-bottom: 20px;">What Our Clients Say</h3>
+            <p class="testimonial-text">
+                "Planova made our wedding day absolutely perfect! From the initial planning to the final execution, 
+                everything was handled with such professionalism and attention to detail. We couldn't have asked for a better team!"
+            </p>
+            <div class="testimonial-author">- Sarah & Michael Johnson</div>
+        </div>
+    </div>
+
+    <!-- Modal for Album View -->
+    <div id="albumModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="color: #8B5A8C; text-align: center; margin-bottom: 20px;">Album Photos</h2>
+            <div id="modalGallery" class="modal-gallery">
+                <!-- Photos will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(albumId) {
+            const modal = document.getElementById('albumModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalGallery = document.getElementById('modalGallery');
+            
+            // Clear previous content
+            modalGallery.innerHTML = '';
+            
+            // Set title and load photos based on album
+            switch(albumId) {
+                case 'album1':
+                    modalTitle.textContent = 'Wedding Ceremonies';
+                    loadAlbumPhotos(['Bridal Party', 'Ceremony Setup', 'Reception Hall', 'Wedding Cake', 'Dance Floor', 'Floral Arrangements'], modalGallery);
+                    break;
+                case 'album2':
+                    modalTitle.textContent = 'Decoration Setups';
+                    loadAlbumPhotos(['Stage Decor', 'Table Settings', 'Lighting Design', 'Entrance Decor', 'Photo Booth', 'Centerpieces'], modalGallery);
+                    break;
+                case 'album3':
+                    modalTitle.textContent = 'Reception Halls';
+                    loadAlbumPhotos(['Grand Ballroom', 'Garden Venue', 'Outdoor Setup', 'Indoor Hall', 'Rooftop Terrace', 'Beach Venue'], modalGallery);
+                    break;
+                case 'album4':
+                    modalTitle.textContent = 'Special Events';
+                    loadAlbumPhotos(['Birthday Party', 'Anniversary', 'Corporate Event', 'Graduation', 'Baby Shower', 'Engagement'], modalGallery);
+                    break;
+            }
+            
+            modal.style.display = 'block';
+        }
+        
+        function loadAlbumPhotos(photoNames, container) {
+            photoNames.forEach(name => {
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'modal-image';
+                photoDiv.textContent = name;
+                container.appendChild(photoDiv);
+            });
+        }
+        
+        function closeModal() {
+            document.getElementById('albumModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('albumModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

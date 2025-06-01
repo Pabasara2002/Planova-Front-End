@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Planova Event Planning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background-color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            color: #8B5A8C;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #8B5A8C;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            color: #8B5A8C;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .hero-title {
+            color: #8B5A8C;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            color: #8B5A8C;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .story-section {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+        
+        .story-title {
+            color: #8B5A8C;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .story-text {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        .story-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .values-section {
+            margin-bottom: 60px;
+        }
+        
+        .values-title {
+            color: #8B5A8C;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .value-title {
+            color: #8B5A8C;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #8B5A8C, #B17BB8);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background-color: white;
+            color: #8B5A8C;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">PLANOVA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">About</h1>
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2 class="hero-title">We are Planova...</h2>
+                <p class="hero-text">
+                    A passionate team of event planning professionals dedicated to creating extraordinary experiences. 
+                    With years of expertise in the industry, we understand that every celebration is unique and deserves 
+                    personalized attention to detail.
+                </p>
+                <p class="hero-text">
+                    From intimate gatherings to grand celebrations, we bring creativity, precision, and unmatched 
+                    dedication to every project. Our mission is to transform your vision into an unforgettable reality.
+                </p>
+            </div>
+            <div class="hero-image">Our Team in Action</div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Events Planned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h2 class="story-title">Our Story - Your Perfect Day</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Founded with a simple belief that every celebration deserves to be extraordinary, Planova began as a small team of passionate event enthusiasts. Over the years, we've grown into one of the region's most trusted event planning companies, but our core values remain unchanged.</p>
+                    
+                    <p>We believe in the power of attention to detail, the importance of listening to our clients' dreams, and the magic that happens when creativity meets flawless execution. Our journey has been marked by countless beautiful moments - from intimate weddings to grand corporate galas.</p>
+                    
+                    <p>What sets us apart is our commitment to understanding that behind every event is a story waiting to be told. We don't just plan events; we craft experiences that become cherished memories for years to come.</p>
+                    
+                    <p>Today, with a team of skilled professionals and a portfolio of successful events, we continue to push the boundaries of what's possible in event planning, always with the same passion that started it all.</p>
+                </div>
+                <div class="story-image">Our Journey</div>
+            </div>
+        </div>
+
+        <div class="values-section">
+            <h2 class="values-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">💎</div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">We strive for perfection in every detail, ensuring that each event exceeds expectations and creates lasting memories.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">💫</div>
+                    <h3 class="value-title">Creativity</h3>
+                    <p class="value-description">We bring innovative ideas and fresh perspectives to every event, making each celebration unique and memorable.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">Trust</h3>
+                    <p class="value-description">We build lasting relationships with our clients based on transparency, reliability, and consistent delivery of promises.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3 class="value-title">Passion</h3>
+                    <p class="value-description">Our love for creating beautiful moments drives everything we do, from initial planning to final execution.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Create Your Perfect Event?</h2>
+            <p class="cta-text">Let's work together to bring your vision to life and create memories that will last a lifetime.</p>
+            <button class="cta-button" onclick="window.location.href='contact.html'">Contact Us Today</button>
+        </div>
+    </div>
+</body>
+</html>
