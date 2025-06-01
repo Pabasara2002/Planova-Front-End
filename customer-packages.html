@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Packages - PLANISTA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: #8e44ad;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #8e44ad;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .package-builder {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .package-builder h2 {
+            color: #8e44ad;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .step {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .step h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .options-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .option-item:hover {
+            background: #f0f0f0;
+        }
+
+        .option-item input[type="radio"]:checked + label,
+        .option-item input[type="checkbox"]:checked + label {
+            color: #8e44ad;
+            font-weight: bold;
+        }
+
+        .option-item input {
+            margin: 0;
+        }
+
+        .option-item label {
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .additional-section {
+            background: #f9f9f9;
+            border-left: 4px solid #8e44ad;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .additional-section h4 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+        }
+
+        .event-logistics {
+            margin-top: 2rem;
+        }
+
+        .logistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background: #8e44ad;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #7d3c98;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #eee;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .options-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .logistics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">PLANISTA</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="packages.html" class="active">Custom Packages</a></li>
+                    <li><a href="auth.html">Login</a></li>
+                    <li><a href="payments.html">Payments</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="package-builder">
+            <h2>Build Your Own Package Here...</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Create your perfect event package by selecting your preferences below
+            </p>
+            
+            <form onsubmit="submitPackageForm(event)">
+                <!-- Step 1: Color Palette -->
+                <div class="step">
+                    <h3>1. Choose the primary color palette for your event?</h3>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="color" value="elegant" id="elegant">
+                            <label for="elegant">🤍 Elegant Neutrals (White, Beige, Gold)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="color" value="bold" id="bold">
+                            <label for="bold">🌈 Bold & Vibrant (Red, Blue, Purple)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="color" value="pastel" id="pastel">
+                            <label for="pastel">🌸 Soft Pastels (Pink, Lavender, Mint)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="color" value="classic" id="classic">
+                            <label for="classic">⚫ Classic Black & White</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Flowers -->
+                <div class="step">
+                    <h3>2. What type of flowers do you want?</h3>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="flowers" value="roses" id="roses">
+                            <label for="roses">🌹 Roses (Classic Romance)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="flowers" value="lilies" id="lilies">
+                            <label for="lilies">🌺 Lilies (Elegant Beauty)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="flowers" value="orchids" id="orchids">
+                            <label for="orchids">🌸 Orchids (Exotic Luxury)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="flowers" value="peonies" id="peonies">
+                            <label for="peonies">🌻 Peonies (Romantic Charm)</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="flowers" value="mixed" id="mixed">
+                            <label for="mixed">💐 Mixed Seasonal Bouquet</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Food -->
+                <div class="step">
+                    <h3>3. What are like a food with a unique as part of your event?</h3>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="checkbox" name="food" value="gourmet" id="gourmet">
+                            <label for="gourmet">🍽️ Gourmet Plated Dinner</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="food" value="buffet" id="buffet">
+                            <label for="buffet">🍴 Buffet Style Dining</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="food" value="cocktail" id="cocktail">
+                            <label for="cocktail">🍸 Cocktail Reception & Hors d'oeuvres</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="checkbox" name="food" value="dessert" id="dessert">
+                            <label for="dessert">🍰 Dessert Bar & Sweet Treats</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Backdrop -->
+                <div class="step">
+                    <h3>4. What type of event backdrop do you prefer?</h3>
+                    <div class="options-group">
+                        <div class="option-item">
+                            <input type="radio" name="backdrop" value="floral" id="floral-backdrop">
+                            <label for="floral-backdrop">🌿 Floral Wall & Garden Theme</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="backdrop" value="elegant" id="elegant-backdrop">
+                            <label for="elegant-backdrop">✨ Elegant Draping & Lights</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="backdrop" value="modern" id="modern-backdrop">
+                            <label for="modern-backdrop">🔷 Modern Geometric Design</label>
+                        </div>
+                        <div class="option-item">
+                            <input type="radio" name="backdrop" value="rustic" id="rustic-backdrop">
+                            <label for="rustic-backdrop">🌾 Rustic & Natural Elements</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Decorating Setup -->
+                <div class="step">
+                    <div class="additional-section">
+                        <h4>Additional Decorating Setup</h4>
+                        <div class="options-group">
+                            <div class="option-item">
+                                <input type="checkbox" name="extras" value="centerpieces" id="centerpieces">
+                                <label for="centerpieces">🕯️ Custom Centerpieces</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="checkbox" name="extras" value="lighting" id="lighting">
+                                <label for="lighting">💡 Ambient Lighting</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="checkbox" name="extras" value="linens" id="linens">
+                                <label for="linens">🎀 Premium Linens & Chair Covers</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Logistics -->
+                <div class="event-logistics">
+                    <h3>Event Logistics</h3>
+                    <div class="logistics-grid">
+                        <div class="form-group">
+                            <label for="guest-count">How many guests will be attending?</label>
+                            <select id="guest-count" name="guest-count" required>
+                                <option value="">Select guest count</option>
+                                <option value="1-25">1-25 guests</option>
+                                <option value="26-50">26-50 guests</option>
+                                <option value="51-100">51-100 guests</option>
+                                <option value="101-200">101-200 guests</option>
+                                <option value="200+">200+ guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-date">What is the date of your event?</label>
+                            <input type="date" id="event-date" name="event-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-time">Start time of the event?</label>
+                            <input type="time" id="event-time" name="event-time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="venue">Do you have a venue in mind?</label>
+                            <input type="text" id="venue" name="venue" placeholder="Venue name or 'Need assistance'">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">What is your estimated budget range?</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="under-5k">Under $5,000</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-20k">$10,000 - $20,000</option>
+                                <option value="20k-50k">$20,000 - $50,000</option>
+                                <option value="over-50k">Over $50,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" name="contact-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">Your Email</label>
+                            <input type="email" id="contact-email" name="contact-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-phone">Your Phone</label>
+                            <input type="tel" id="contact-phone" name="contact-phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="special-requests">Any special requests or additional details?</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="Tell us about any special requirements, themes, or specific needs for your event..."></textarea>
+                    </div>
+                </div>
+
+                <div class="submit-container">
+                    <button type="submit" class="btn">Submit Package Request</button>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                        We'll review your request and get back to you within 24 hours with a detailed proposal
+                    </p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('success-modal')">&times;</button>
+            <div class="success-icon">✓</div>
+            <h3>Your submission has been recorded.</h3>
+            <p>Thank you for choosing PLANISTA! We'll contact you within 24 hours with your custom package proposal.</p>
+            <button class="btn" onclick="closeModal('success-modal')">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function submitPackageForm(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            
+            // Handle regular form fields
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    // Handle multiple values (like checkboxes)
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Simulate form submission
+            console.log('Package form submitted:', data);
+            
+            // Show success modal
+            showModal('success-modal');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('event-date').setAttribute('min', today);
+        });
+    </script>
+</body>
+</html>
