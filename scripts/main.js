@@ -211,3 +211,197 @@ function simulateFormSubmission(formData) {
     // Simulate API call delay
     setTimeout(() => {
         console.log('Form submitted:', formData);
+
+// main.js - Header and Footer Components for Planova
+(function() {
+    'use strict';
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initComponents);
+    } else {
+        initComponents();
+    }
+
+    function initComponents() {
+        // Create header
+        createHeader();
+        
+        // Create footer
+        createFooter();
+        
+        // Initialize functionality
+        initializeEvents();
+    }
+
+    function createHeader() {
+        const header = document.createElement('header');
+        header.className = 'planova-header';
+        header.innerHTML = `
+            <div class="planova-header-container">
+                <a href="index.html" class="planova-logo">
+                    <div class="planova-logo-icon">🎉</div>
+                    <span>PLANOVA</span>
+                </a>
+                
+                <nav>
+                    <ul class="planova-nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="customer-packages.html">Packages</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="planova-auth-buttons">
+                    <a href="login.html" class="planova-btn planova-btn-outline">Login</a>
+                    <a href="register.html" class="planova-btn planova-btn-primary">Register</a>
+                </div>
+                
+                <button class="planova-mobile-toggle" onclick="window.planovaToggleMobileMenu()">
+                    ☰
+                </button>
+            </div>
+            
+            <div class="planova-mobile-menu" id="planovaMobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="customer-packages.html">Packages</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="planova-mobile-auth">
+                    <a href="login.html" class="planova-btn planova-btn-outline">Login</a>
+                    <a href="register.html" class="planova-btn planova-btn-primary">Register</a>
+                </div>
+            </div>
+        `;
+
+        // Insert at the beginning of body
+        document.body.insertBefore(header, document.body.firstChild);
+    }
+
+    function createFooter() {
+        const footer = document.createElement('footer');
+        footer.className = 'planova-footer';
+        footer.innerHTML = `
+            <div class="planova-footer-container">
+                <div class="planova-footer-content">
+                    <div class="planova-footer-section">
+                        <h3>Planova</h3>
+                        <p>Your trusted partner in creating unforgettable events. We specialize in wedding planning, corporate events, and celebrations of all kinds.</p>
+                        <div class="planova-social-links">
+                            <a href="#" class="planova-social-link">📘</a>
+                            <a href="#" class="planova-social-link">📷</a>
+                            <a href="#" class="planova-social-link">🐦</a>
+                            <a href="#" class="planova-social-link">💼</a>
+                        </div>
+                    </div>
+                    
+                    <div class="planova-footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="planova-footer-section">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="services.html#wedding">Wedding Planning</a></li>
+                            <li><a href="services.html#corporate">Corporate Events</a></li>
+                            <li><a href="services.html#birthday">Birthday Parties</a></li>
+                            <li><a href="customer-packages.html">Custom Packages</a></li>
+                            <li><a href="services.html#decoration">Event Decoration</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="planova-footer-section">
+                        <h3>Contact Info</h3>
+                        <ul>
+                            <li>📍 123 Event Street, City, Country</li>
+                            <li>📞 +1 (555) 123-4567</li>
+                            <li>✉️ info@planova.com</li>
+                            <li>🕒 Mon - Fri: 9AM - 6PM</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="planova-footer-divider"></div>
+                
+                <div class="planova-footer-bottom">
+                    <div>
+                        <p>&copy; 2025 Planova Event Planning. All rights reserved.</p>
+                    </div>
+                    <div class="planova-footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Append to body
+        document.body.appendChild(footer);
+    }
+
+    function initializeEvents() {
+        // Mobile Menu Toggle Function (Global)
+        window.planovaToggleMobileMenu = function() {
+            const mobileMenu = document.getElementById('planovaMobileMenu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('active');
+            }
+        };
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('planovaMobileMenu');
+            const toggle = document.querySelector('.planova-mobile-toggle');
+            
+            if (mobileMenu && toggle && 
+                !mobileMenu.contains(event.target) && 
+                !toggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Active menu highlighting based on current page
+        setTimeout(() => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const menuItems = document.querySelectorAll('.planova-nav-menu a, .planova-mobile-menu a');
+            
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === currentPage) {
+                    item.classList.add('active');
+                }
+            });
+        }, 100);
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    }
+
+})();
