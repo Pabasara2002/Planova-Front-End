@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful</title>
+  <link rel="stylesheet" href="payment-success.css">
+</head>
+<body>
+  <div class="modal">
+    <div class="close-btn">&times;</div>
+    <div class="content">
+      <div class="checkmark">✔️</div>
+      <h2 class="title">Payment Successful</h2>
+      <p class="subtitle">Thank you for the payment!</p>
+      <button class="redirect-btn">Redirect to Main Page</button>
+      <p class="countdown">Page will be redirected in <span id="timer">22</span> seconds</p>
+    </div>
+  </div>
+
+  <script>
+    let seconds = 22;
+    const timerElement = document.getElementById("timer");
+    const countdown = setInterval(() => {
+      seconds--;
+      timerElement.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        window.location.href = "home.html"; // Redirect destination
+      }
+    }, 1000);
+
+    document.querySelector(".close-btn").onclick = () => {
+      document.querySelector(".modal").style.display = "none";
+    };
+  </script>
+</body>
+</html>

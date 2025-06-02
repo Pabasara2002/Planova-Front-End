@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 24px 4px 6px;
+  background-color: #DBD5D5;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20x;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+    color: rgb(118, 37, 113);
+    background-color: rgb(242, 218, 239);
+}
+
+.nav-links a.active {
+  color: #a44a94;
+}
+
+#login-btn {
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#login-btn:hover {
+    background-color: rgb(118, 37, 113);
+}
+
+/* Services */
+.section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
+  color: #700f61;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.section-subtext {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.card {
+  width: 200px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: border 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.card:hover {
+  border: 2px solid #1e90ff;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.add-btn, .reset-btn {
+  padding: 0.5rem 1rem;
+  margin: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.add-btn {
+  background-color: #8e145c;
+  color: white;
+  border: none;
+}
+
+.reset-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+/* Footer */
+.footer {
+  background-color: #DBD5D5;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer-contact {
+  margin-top: 10px;
+  color: #555;
+}
+
+.footer-rights {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #777;
+}
+

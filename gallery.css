@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 24px 4px 6px;
+  background-color: #DBD5D5;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20x;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+    color: rgb(118, 37, 113);
+    background-color: rgb(242, 218, 239);
+}
+
+.nav-links a.active {
+  color: #a44a94;
+}
+
+#login-btn {
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#login-btn:hover {
+    background-color: rgb(118, 37, 113);
+}
+
+/* Gallery */
+.gallery-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.gallery-title {
+  color: #700f61;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.gallery-desc {
+  color: #555;
+  text-align: justify;
+  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.albums {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.album img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.album p {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  background-color: #DBD5D5;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer-contact {
+  margin-top: 10px;
+  color: #555;
+}
+
+.footer-rights {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #777;
+}
+

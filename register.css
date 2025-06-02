@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5; /* Light grey background */
+    flex-direction: column; /* To stack the forms */
+    gap: 15px; /* Space between the two form cards */
+    padding: 30px 0; /* Add some padding top/bottom */
+}
+
+.form-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between the two form cards */
+    width: 100%;
+    align-items: center;
+}
+
+.form-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 550px; /* Max width for the cards */
+    box-sizing: border-box;
+    text-align: center; /* Center the title and content */
+}
+
+.form-title {
+    color: #781f77; /* Dark purple */
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative; /* For the underline */
+    display: inline-block; /* To make underline span only the text width */
+}
+
+.title-underline {
+    width: 95%; /* Adjust as needed */
+    height: 4px;
+    background-color: #7b2e81; /* Purple underline */
+    margin: 0 auto 30px auto; /* Center and add space below */
+    border-radius: 2px;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input fields */
+    text-align: left;
+    font-size: 14px;
+    color: #781f77;
+
+}
+
+.form input {
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    background-color: #f9f9f9; /* Slightly off-white background for inputs */
+}
+
+.form input::placeholder {
+    color: #a0a0a0;
+}
+
+.submit-button {
+    background-color: #7b2e81; /* Darker purple for button */
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Space above the button */
+}
+
+.submit-button:hover {
+    background-color: #652569;
+}
+
+.unsuccess a {
+    display: block;
+    margin-top: 15px;
+    color: #7b2e81; /* Purple for the link */
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.unsuccess a:hover {
+    text-decoration: underline;
+    color: #9c49a2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .form-card {
+        padding: 30px 20px;
+        margin: 0 15px; /* Add side margins on small screens */
+    }
+
+    .form-title {
+        font-size: 24px;
+    }
+
+    .form input,
+    .submit-button {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+}

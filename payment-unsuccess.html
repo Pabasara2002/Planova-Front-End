@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transaction Error</title>
+  <link rel="stylesheet" href="payment-unsuccess.css">
+</head>
+<body>
+  <div class="modal">
+    <div class="close-btn">&times;</div>
+    <div class="content">
+      <div class="error-icon">❌</div>
+      <h2 class="title">There was a problem with your transaction</h2>
+      <p class="subtitle">Please try adding funds with a different method</p>
+
+      <div class="btn-group">
+        <button class="retry-btn">Retry</button>
+        <button class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+  document.querySelector(".close-btn").onclick = () => {
+    document.querySelector(".modal").style.display = "none";
+  };
+
+  document.querySelector(".retry-btn").onclick = () => {
+    alert("Retrying transaction...");
+    // window.location.href = 'retry-page.html';
+  };
+
+  document.querySelector(".cancel-btn").onclick = () => {
+    alert("Transaction canceled.");
+    // window.location.href = 'main-page.html';
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000000aa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 450px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.error-icon {
+  font-size: 40px;
+  color: #e53935;
+  border: 2px solid #e53935;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.title {
+  font-size: 22px;
+  color: #781f77;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retry-btn {
+  background-color: #e53935;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  background-color: #d32f2f;
+}
+
+.cancel-btn {
+  background-color: #f5f0f9;
+  color: #5e35b1;
+  padding: 12px 20px;
+  border: 1px solid #e0d7f2;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #ece6f3;
+}
