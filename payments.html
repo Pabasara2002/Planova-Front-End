@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Payment Method</title>
+  <link rel="stylesheet" href="payments.css">
+</head>
+<body>
+
+  <!-- Modal Card -->
+  <div class="modal">
+    <div class="close-btn">&times;</div>
+    <h2 class="title">Edit Payment Method</h2>
+
+    <div class="payment-icons">
+      <img src="https://img.icons8.com/ios-filled/30/lock.png" alt="Secure">
+      <img src="https://img.icons8.com/color/48/visa.png" alt="Visa">
+      <img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal">
+      <img src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard">
+    </div>
+
+    <form class="payment-form">
+            <div class="form-group">
+                <label for="first-name"><b>FIRST NAME</b></label><br>
+                <input type="text" id="first-name" placeholder="John" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name"><b>LAST NAME</b></label><br>
+                <input type="text" id="last-name" placeholder="Smith"required>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="card-number"><b>CARD NUMBER</b></label><br>
+                <div class="card-input-wrapper">
+                    <img src="https://img.icons8.com/color/24/mastercard.png" alt="Mastercard" class="card-input-icon">
+                    <input type="text" id="card-number" placeholder="**** **** *** 2468" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="expire-date"><b>EXPIRE DATE</b></label><br>
+                <input type="text" id="expire-date" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cvc"><b>CVC</b></label><br>
+                <input type="password" id="cvc" placeholder="***" required>
+            </div>
+            <div class="form-group">
+                <label for="zip-code"><b>ZIP CODE</b></label><br>
+                <input type="text" id="zip-code" placeholder="00-123" required>
+            </div>
+
+            <button type="submit" class="submit-btn"><b>Save & Confirm</b></button>
+        </form>
+  </div>
+
+</body>
+</html>
