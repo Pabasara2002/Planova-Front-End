@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 24px 4px 6px;
+  background-color: #DBD5D5;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20x;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+    color: rgb(118, 37, 113);
+    background-color: rgb(242, 218, 239);
+}
+
+.nav-links a.active {
+  color: #a44a94;
+}
+
+#login-btn {
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#login-btn:hover {
+    background-color: rgb(118, 37, 113);
+}
+
+/* CONTACT US */
+
+.form-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between the two form cards */
+    width: 100%;
+    align-items: center;
+}
+
+.form-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 40px 30px;
+    /*box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);*/
+    width: 100%;
+    max-width: 750px; /* Max width for the cards */
+    box-sizing: border-box;
+    text-align: center; /* Center the title and content */
+}
+
+.form-title {
+    color: #781f77; /* Dark purple */
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative; 
+    display: inline-block; 
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input fields */
+    text-align: left;
+    font-size: 14px;
+    color: #781f77;
+
+}
+
+.form input {
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    background-color: #f9f9f9; /* Slightly off-white background for inputs */
+}
+
+.form input::placeholder {
+    color: #a0a0a0;
+}
+
+.submit-button {
+    background-color: #7b2e81; /* Darker purple for button */
+    color: #fff;
+    padding: 15px 25px;
+    width: 40%;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Space above the button */
+}
+
+.submit-button:hover {
+    background-color: #652569;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .form-card {
+        padding: 30px 20px;
+        margin: 0 15px; /* Add side margins on small screens */
+    }
+
+    .form-title {
+        font-size: 24px;
+    }
+
+    .form input,
+    .submit-button {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  max-width: 750px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.contact-left {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.contact-left h3 {
+  color: #A870A3;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.contact-right {
+  flex: 3;
+}
+
+.contact-right .description {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.icon {
+  margin-right: 0.5rem;
+  color: #a9489d;
+}
+/* Footer */
+.footer {
+  background-color: #DBD5D5;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer-contact {
+  margin-top: 10px;
+  color: #555;
+}
+
+.footer-rights {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #777;
+}
+
